@@ -1,7 +1,7 @@
 # 🩺 EGIP: An Evidence-Grounded Interaction Protocol for Clinical Agents
 
-![arXiv](https://img.shields.io/badge/arXiv-2610.24539-b31b1b.svg)  
-![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
+[![arXiv](https://img.shields.io/badge/arXiv-2608.08487-b31b1b.svg)](https://arxiv.org/abs/2610.24539)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/Nislab-r/EGIP/blob/master/LICENSE)
 
 ## 🌟 Overview
 
