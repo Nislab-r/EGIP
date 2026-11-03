@@ -1,7 +1,7 @@
 # 🩺 EGIP: An Evidence-Grounded Interaction Protocol for Clinical Agents
 
-![Paper](assets/paper_badge.svg)
-![License](assets/license_badge.svg)
+[![arXiv](https://img.shields.io/badge/arXiv-2610.24539-b31b1b.svg)](https://arxiv.org/abs/2610.24539)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/Nislab-r/EGIP/blob/main/LICENSE)
 
 EGIP controls how clinical agents access information, request examinations, and obtain recorded results. A shared acquired-evidence interface separates evidence acquisition from terminal prediction, allowing different decision strategies to use the same observations.
 
@@ -15,7 +15,7 @@ This repository provides the **MedAgentSim implementation**, with **107 MedQA ca
 - [📊 Experiments](#-experiments)
 - [📁 Project Structure](#-project-structure)
 - [📝 Citation](#-citation)
-- [📄 License](#-license)
+- [📄 License](LICENSE)
 - [🤝 Acknowledgements](#-acknowledgements)
 
 ## 🌟 Overview
