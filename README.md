@@ -1,9 +1,22 @@
 # 🩺 EGIP: An Evidence-Grounded Interaction Protocol for Clinical Agents
 
-[![arXiv](https://img.shields.io/badge/arXiv-2610.24539-b31b1b.svg)](https://arxiv.org/abs/2610.24539)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/Nislab-r/EGIP/blob/main/LICENSE)
+![arXiv](https://img.shields.io/badge/arXiv-2610.24539-b31b1b.svg)  
+![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
 
-EGIP controls how clinical agents access information, request examinations, and obtain recorded results. A shared acquired-evidence interface separates evidence acquisition from terminal prediction, allowing different decision strategies to use the same observations.
+## 🌟 Overview
+
+![EGIP framework: role-specific views, result-blinded action menus, record lookup, and the acquired-evidence interface.](vscode-file://vscode-app/Users/zechengren/Desktop/EGIP/EGIP_publish_20261103/assets/egip_framework.png)
+
+*Controlled evidence acquisition and decoupled terminal prediction.*
+
+EGIP controls how clinical agents access information, request examinations, and obtain recorded results. A shared acquired-evidence interface separates evidence acquisition from terminal prediction, allowing different decision strategies to use the same observations. EGIP connects four components along the evidence flow:
+
+1. **Role-specific views (R)** define what each agent can observe.
+2. **Result-blinded action menus (B)** expose available examinations without their results.
+3. **Record lookup (O)** returns stored findings for valid requests.
+4. **Acquired-evidence interface (E)** supplies acquired observations to Direct, Vote, or Full.
+
+See Integration for the implementation and MedAgentSim adapter.
 
 This repository provides the **MedAgentSim implementation**, with **107 MedQA cases** as a reproduction example. It supports Direct, Vote, and Full.
 
@@ -17,21 +30,6 @@ This repository provides the **MedAgentSim implementation**, with **107 MedQA ca
 - [📝 Citation](#-citation)
 - [📄 License](LICENSE)
 - [🤝 Acknowledgements](#-acknowledgements)
-
-## 🌟 Overview
-
-![EGIP framework: role-specific views, result-blinded action menus, record lookup, and the acquired-evidence interface.](assets/egip_framework.png)
-
-*Controlled evidence acquisition and decoupled terminal prediction.*
-
-EGIP connects four components along the evidence flow:
-
-1. **Role-specific views (R)** define what each agent can observe.
-2. **Result-blinded action menus (B)** expose available examinations without their results.
-3. **Record lookup (O)** returns stored findings for valid requests.
-4. **Acquired-evidence interface (E)** supplies acquired observations to Direct, Vote, or Full.
-
-See [Integration](docs/integration.md) for the implementation and MedAgentSim adapter.
 
 ## 📦 Installation
 
