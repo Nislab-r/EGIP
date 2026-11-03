@@ -5,7 +5,7 @@
 
 ## 🌟 Overview
 
-![EGIP framework: role-specific views, result-blinded action menus, record lookup, and the acquired-evidence interface.](vscode-file://vscode-app/Users/zechengren/Desktop/EGIP/EGIP_publish_20261103/assets/egip_framework.png)
+![EGIP framework: role-specific views, result-blinded action menus, record lookup, and the acquired-evidence interface.](https://github.com/Nislab-r/EGIP/blob/master/assets/EGIP.pdf)
 
 *Controlled evidence acquisition and decoupled terminal prediction.*
 
@@ -162,4 +162,4 @@ If you use EGIP in your research, please cite:
 
 ## 🤝 Acknowledgements
 
-We thank the authors of [MedAgentSim](https://github.com/MAXNORM8650/MedAgentSim) and [AgentClinic](https://github.com/samuelschmidgall/agentclinic) for making their clinical-agent frameworks available. This release uses MedAgentSim's adapted MedQA cases. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for source attribution and license terms.
+We thank the authors of [MedAgentSim](https://github.com/MAXNORM8650/MedAgentSim) and [AgentClinic](https://github.com/samuelschmidgall/agentclinic) for making their clinical-agent frameworks available. This release uses MedAgentSim's adapted MedQA cases.
