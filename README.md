@@ -1,10 +1,11 @@
 # 🩺 EGIP: An Evidence-Grounded Interaction Protocol for Clinical Agents
 
-[📄 Paper](https://arxiv.org/abs/2610.24539) | [🔌 Integration](docs/integration.md) | [📝 Citation](#-citation)
+![Paper](assets/paper_badge.svg)
+![License](assets/license_badge.svg)
 
 EGIP controls how clinical agents access information, request examinations, and obtain recorded results. A shared acquired-evidence interface separates evidence acquisition from terminal prediction, allowing different decision strategies to use the same observations.
 
-This repository provides the **MedAgentSim implementation**, with **107 MedQA cases** as a reproduction example. It supports Direct, Vote, Full, and acquisition and terminal-input ablations.
+This repository provides the **MedAgentSim implementation**, with **107 MedQA cases** as a reproduction example. It supports Direct, Vote, and Full.
 
 ## 📑 Contents
 
@@ -14,13 +15,14 @@ This repository provides the **MedAgentSim implementation**, with **107 MedQA ca
 - [📊 Experiments](#-experiments)
 - [📁 Project Structure](#-project-structure)
 - [📝 Citation](#-citation)
+- [📄 License](#-license)
 - [🤝 Acknowledgements](#-acknowledgements)
 
 ## 🌟 Overview
 
-[![EGIP framework: role-specific views, result-blinded action menus, record lookup, and the acquired-evidence interface.](assets/egip_framework.png)](assets/EGIP.pdf)
+![EGIP framework: role-specific views, result-blinded action menus, record lookup, and the acquired-evidence interface.](assets/egip_framework.png)
 
-*Controlled evidence acquisition and decoupled terminal prediction. [View PDF](assets/EGIP.pdf).*
+*Controlled evidence acquisition and decoupled terminal prediction.*
 
 EGIP connects four components along the evidence flow:
 
@@ -80,7 +82,39 @@ The defaults are 19 acquisition rounds followed by terminal prediction, temperat
 
 `results/medqa_direct/summary.json` reports mean accuracy and sample SD. Each `repeat_*/case_*/` stores dialogue, model calls, terminal evidence, and the scored result. Accuracy uses all scheduled cases as the denominator. The paper reports **55.14 ± 0.93%** for this configuration. Results may vary with stochastic generation and serving settings.
 
-Use a separate output directory for each configuration. See [Experiment Commands](docs/experiments.md) for alternative terminal strategies, ablations, and native baseline execution.
+Use a separate output directory for each configuration.
+
+### 🧠 Terminal Strategies
+
+Run three repetitions with fresh acquisition:
+
+```bash
+egip-reproduce --terminal vote --output results/medqa_vote
+egip-reproduce --terminal full --output results/medqa_full
+```
+
+For comparisons on identical acquired observations, reuse a saved Direct result instead:
+
+```bash
+egip-replay --source results/medqa_direct/repeat_1/case_0000/result.json \
+  --model Qwen/Qwen3-8B --terminal vote \
+  --first-direct results/medqa_direct/repeat_1/case_0000/result.json \
+  --score --dataset MedQA --case-id 0 --output results/vote_case0
+```
+
+Vote uses five samples, including the saved Direct answer when `--first-direct` is provided. For Full, change `--terminal` to `full` and omit `--first-direct`. Without `--score`, fixed-evidence prediction returns an answer without automated scoring.
+
+### 📂 Outputs and Native Baseline
+
+`failure.json` records errors. `egip-summarize results/medqa_direct/repeat_1` summarizes a single acquisition run. Pass multiple repetition directories to obtain their mean and sample SD.
+
+The bundled MedAgentSim subset runs EGIP. To execute the original native doctor workflow, use a complete compatible MedAgentSim checkout with its dependencies:
+
+```bash
+egip-native --root /path/to/full/MedAgentSim -- <native arguments>
+```
+
+Native arguments and transport settings are passed through unchanged. See [Integration](docs/integration.md) for the external checkout interface.
 
 ## 📁 Project Structure
 
@@ -104,9 +138,11 @@ Use a separate output directory for each configuration. See [Experiment Commands
 │   └── _medagentsim/
 │       ├── medsim/                # Scenario API, model client, and scorer
 │       └── datasets/_medqa.jsonl  # 107-case reference dataset
-├── docs/                         # Integration and experiment instructions
+├── docs/integration.md           # MedAgentSim integration
 ├── tests/                        # Automated tests
 ├── pyproject.toml
+├── LICENSE                       # Apache License 2.0 for EGIP-authored code
+├── NOTICE
 └── THIRD_PARTY_NOTICES.md
 ```
 
@@ -116,13 +152,13 @@ If you use EGIP in your research, please cite:
 
 ```bibtex
 @misc{ren2026egipevidencegroundedinteractionprotocol,
-  title={EGIP: An Evidence-Grounded Interaction Protocol for Clinical Agents},
-  author={Zecheng Ren and Ruichen Cong and Yi Min Chen and Jing Zhang and Feiyang Chen and Wutong Zhang and Kaixiang Wang and Zihan Wang and Jiong Lou and Jie LI and Qun Jin},
-  year={2026},
-  eprint={2610.24539},
-  archivePrefix={arXiv},
-  primaryClass={cs.CL},
-  url={https://arxiv.org/abs/2610.24539}
+      title={EGIP: An Evidence-Grounded Interaction Protocol for Clinical Agents}, 
+      author={Zecheng Ren and Ruichen Cong and Yi Min Chen and Jing Zhang and Feiyang Chen and Wutong Zhang and Kaixiang Wang and Zihan Wang and Jiong Lou and Jie LI and Qun Jin},
+      year={2026},
+      eprint={2610.24539},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2610.24539}, 
 }
 ```
 

@@ -12,4 +12,4 @@ Bundled scenario classes and MeasurementAgent are unchanged excerpts. The simila
 
 ## EGIP
 
-EGIP modules are the authors' research code. No new license is assigned to them by this packaging step. The authors should choose an EGIP code license before public distribution; the MedAgentSim notice above must be preserved.
+EGIP-authored code is licensed under the [Apache License 2.0](LICENSE). Copyright 2026 EGIP contributors. This license does not replace the licenses of MedAgentSim-derived components or the bundled MedQA data described above.

@@ -1,0 +1,8 @@
+EGIP: An Evidence-Grounded Interaction Protocol for Clinical Agents
+Copyright 2026 EGIP contributors.
+
+EGIP-authored code is licensed under the Apache License, Version 2.0.
+This distribution also includes MedAgentSim-derived components and adapted
+MedQA data, which retain their original license terms. See
+THIRD_PARTY_NOTICES.md and egip_aligned/_medagentsim/LICENSE.txt for attribution
+and the applicable third-party license notice.
