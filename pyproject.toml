@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "egip-protocol"
+version = "0.2.0"
+description = "EGIP for MedAgentSim with a MedQA reproduction example"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+egip-run = "egip_aligned.run:main"
+egip-native = "egip_aligned.native:main"
+egip-replay = "egip_aligned.replay:main"
+egip-reproduce = "egip_aligned.reproduce:main"
+egip-summarize = "egip_aligned.summarize:main"
+
+[tool.setuptools]
+license-files = ["THIRD_PARTY_NOTICES.md", "egip_aligned/_medagentsim/LICENSE.txt"]
+
+[tool.setuptools.packages.find]
+include = ["egip_aligned*"]
+
+[tool.setuptools.package-data]
+"egip_aligned._medagentsim" = ["datasets/*.jsonl", "LICENSE.txt"]
