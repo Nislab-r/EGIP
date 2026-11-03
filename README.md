@@ -5,7 +5,7 @@
 
 ## 🌟 Overview
 
-![EGIP framework: role-specific views, result-blinded action menus, record lookup, and the acquired-evidence interface.](https://github.com/Nislab-r/EGIP/blob/master/assets/EGIP.pdf)
+![EGIP framework: role-specific views, result-blinded action menus, record lookup, and the acquired-evidence interface.](https://github.com/Nislab-r/EGIP/blob/master/assets/egip_framework.png)
 
 *Controlled evidence acquisition and decoupled terminal prediction.*
 
